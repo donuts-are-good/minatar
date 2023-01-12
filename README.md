@@ -1,4 +1,6 @@
+<center>
 <img width="796" alt="happy minatar" src="https://user-images.githubusercontent.com/96031819/212132722-02518fa9-4fa7-4e3b-8b88-da544e5f05e7.png">
+</center>
 # 🤏🎨 minatar 🖼️✨
 A **min**imal av**atar** generator for turning strings into embeddable base64-encoded images!
 
