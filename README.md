@@ -7,13 +7,7 @@ A fun little project that creates an abstract image from a given string. Perfect
 ## 🥽 Examples
 Click an example to see the corresponding image 
 
-![alice@example.com](https://user-images.githubusercontent.com/96031819/211981802-929c6eca-ca7d-43ce-b17d-9939696c548d.png)
-
-![fred@server.3ck0.com](https://user-images.githubusercontent.com/96031819/211981924-428f9f4b-70d9-4568-91e8-76d770661576.png)
-
-![sing-a-song-of-sixpence](https://user-images.githubusercontent.com/96031819/211981976-88710030-f584-42f0-9355-d74eee6707ef.png)
-
-![192.168.1.1](https://user-images.githubusercontent.com/96031819/211982049-2f0c80be-838a-4001-9055-b3e727b1e3e1.png)
+![alice@example.com](https://user-images.githubusercontent.com/96031819/211981802-929c6eca-ca7d-43ce-b17d-9939696c548d.png) ![fred@server.3ck0.com](https://user-images.githubusercontent.com/96031819/211981924-428f9f4b-70d9-4568-91e8-76d770661576.png) ![sing-a-song-of-sixpence](https://user-images.githubusercontent.com/96031819/211981976-88710030-f584-42f0-9355-d74eee6707ef.png) ![192.168.1.1](https://user-images.githubusercontent.com/96031819/211982049-2f0c80be-838a-4001-9055-b3e727b1e3e1.png)
 
 ## ⁉️ Why not use gravatar?
 Gravatar is great, but sometimes you just want something a little more... unique. Plus, it's a great excuse to play around with Go! 🚀
