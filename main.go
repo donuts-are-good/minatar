@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/base64"
+	"fmt"
 	"image"
 	"image/color"
 	"image/png"
@@ -17,6 +18,7 @@ func main() {
 
 	// API on port 8080
 	http.ListenAndServe(":8080", nil)
+
 }
 
 // handlerfunc takes a string in a get request from the URL and returns an image as text
@@ -31,7 +33,8 @@ func handlerFunc(w http.ResponseWriter, r *http.Request) {
 	// check for errors
 	if err != nil {
 		// on error set the status code to internal server error
-		w.WriteHeader(http.StatusInternalServerError)
+		// and write the error message to the response
+		http.Error(w, fmt.Sprintf("error creating image: %v", err), http.StatusInternalServerError)
 		return
 	}
 
@@ -40,6 +43,7 @@ func handlerFunc(w http.ResponseWriter, r *http.Request) {
 
 	// return the image text as the response
 	w.Write([]byte(result))
+
 }
 
 // hash returns a deterministic hash of a string, by combining all characters
@@ -59,7 +63,9 @@ func hash(s string) int {
 	for _, c := range s {
 		h = h*prime + int(c)
 	}
+
 	return h
+
 }
 
 // createAbstractImage takes a string, generates the image, then returns
@@ -92,11 +98,9 @@ func createAbstractImage(s string) (string, error) {
 			// pick a shape
 			shapeType := rnd.Intn(2)
 			if shapeType == 0 {
-
 				// draw a circle
 				drawCircle(img, c, i, j)
 			} else {
-
 				// draw a square
 				drawSquare(img, c, i, j)
 			}
@@ -108,7 +112,8 @@ func createAbstractImage(s string) (string, error) {
 
 	// encode as png
 	if err := png.Encode(buf, img); err != nil {
-		return "", err
+		// return an error if the encoding fails
+		return "", fmt.Errorf("error encoding image: %v", err)
 	}
 
 	// Return the image data as a base64-encoded string
@@ -135,6 +140,7 @@ func drawCircle(img *image.NRGBA, c color.NRGBA, x int, y int) {
 			}
 		}
 	}
+
 }
 
 // drawSquare takes in three arguments: an image, a color and two coords.
@@ -143,14 +149,13 @@ func drawCircle(img *image.NRGBA, c color.NRGBA, x int, y int) {
 // to the given color.
 func drawSquare(img *image.NRGBA, c color.NRGBA, x int, y int) {
 
-	// For every pixel in the x range from x to x+8
+	// for every pixel in the x range from x to x+8
 	for i := x; i < x+8; i++ {
-
 		// For every pixel in the y range from y to y+8
 		for j := y; j < y+8; j++ {
-
 			// Set the pixel's color to the desired color
 			img.Set(i, j, c)
 		}
 	}
+
 }
