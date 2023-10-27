@@ -18,8 +18,8 @@ It uses a hash of the given string to seed a random number generator, which then
 
 ## 🛠️ Usage
   Build the project with `go build`
-  Run the binary `./minatar`, it starts a local web server listening on port 8080
-  Open a web browser and go to `http://localhost:8080/{string}` to get an image
+  Run the binary `./minatar`, it starts a local web server listening on port 15578
+  Open a web browser and go to `http://localhost:15578/{string}` to get an image
 
 ## ✏️ Todo
 
